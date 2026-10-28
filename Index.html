@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life in a New City - Interactive Lesson</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Poppins', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col">
+
+    <!-- Header -->
+    <header class="bg-slate-800 border-b border-slate-700 py-6 px-4 shadow-md">
+        <div class="max-w-4xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div>
+                <span class="bg-indigo-500 text-white text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">B1 Level Lesson</span>
+                <h1 class="text-2xl sm:text-3xl font-bold mt-1 text-white">Life in a New City</h1>
+                <p class="text-slate-400 text-sm">Mastering <span class="text-indigo-400 font-medium">used to</span>, <span class="text-indigo-400 font-medium">be used to</span>, and <span class="text-indigo-400 font-medium">get used to</span></p>
+            </div>
+            <div class="flex gap-2 bg-slate-900 p-1.5 rounded-xl border border-slate-700">
+                <button onclick="switchTab('phase1')" id="btn-phase1" class="tab-btn px-3 py-1.5 text-xs font-medium rounded-lg transition bg-indigo-600 text-white">1. Story</button>
+                <button onclick="switchTab('phase2')" id="btn-phase2" class="tab-btn px-3 py-1.5 text-xs font-medium rounded-lg transition text-slate-400 hover:text-white">2. Practice</button>
+                <button onclick="switchTab('phase3')" id="btn-phase3" class="tab-btn px-3 py-1.5 text-xs font-medium rounded-lg transition text-slate-400 hover:text-white">3. Compare</button>
+                <button onclick="switchTab('phase4')" id="btn-phase4" class="tab-btn px-3 py-1.5 text-xs font-medium rounded-lg transition text-slate-400 hover:text-white">4. Speaking</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="max-w-4xl mx-auto p-4 sm:p-6 flex-grow w-full">
+
+        <!-- PHASE 1: STORY -->
+        <section id="phase1" class="tab-content space-y-6">
+            <div class="bg-slate-800 border border-slate-700 rounded-2xl p-6 sm:p-8 shadow-xl">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-10 h-10 rounded-xl bg-indigo-500/20 text-indigo-400 flex items-center justify-center font-bold text-lg">1</div>
+                    <h2 class="text-xl font-semibold text-white">Meet Carlos</h2>
+                </div>
+                <p class="text-slate-300 leading-relaxed mb-6">
+                    Carlos lived in a small, quiet town in Venezuela for 25 years. He woke up late, walked everywhere, and ate homemade food every day. Last month, he moved to a busy, noisy capital city for a new job. Everything is different for him now!
+                </p>
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <div class="bg-slate-900/60 border border-slate-700/60 p-4 rounded-xl">
+                        <h3 class="font-semibold text-indigo-400 mb-2">🏠 His Past Life</h3>
+                        <ul class="text-sm text-slate-300 space-y-1.5">
+                            <li>• Woke up late</li>
+                            <li>• Walked everywhere</li>
+                            <li>• Quiet environment</li>
+                        </ul>
+                    </div>
+                    <div class="bg-slate-900/60 border border-slate-700/60 p-4 rounded-xl">
+                        <h3 class="font-semibold text-emerald-400 mb-2">🏙️ His Present Life</h3>
+                        <ul class="text-sm text-slate-300 space-y-1.5">
+                            <li>• Heavy traffic & noise</li>
+                            <li>• Fast-paced routine</li>
+                            <li>• Adapting day by day</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mt-8 flex justify-end">
+                    <button onclick="switchTab('phase2')" class="bg-indigo-600 hover:bg-indigo-500 text-white px-6 py-2.5 rounded-xl font-medium transition flex items-center gap-2">
+                        Next: Interactive Practice &rarr;
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- PHASE 2: PRACTICE -->
+        <section id="phase2" class="tab-content hidden space-y-6">
+            <div class="bg-slate-800 border border-slate-700 rounded-2xl p-6 sm:p-8 shadow-xl">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-10 h-10 rounded-xl bg-indigo-500/20 text-indigo-400 flex items-center justify-center font-bold text-lg">2</div>
+                    <h2 class="text-xl font-semibold text-white">Choose the Correct Structure</h2>
+                </div>
+                <p class="text-slate-400 text-sm mb-6">Based on Carlos's story, select the right option for each sentence.</p>
+
+                <div class="space-y-6">
+                    <!-- Q1 -->
+                    <div class="bg-slate-900/80 border border-slate-700 p-5 rounded-xl">
+                        <p class="font-medium text-slate-200 mb-3">1. Carlos ______ up late when he lived in his small town.</p>
+                        <div class="grid sm:grid-cols-2 gap-3">
+                            <button onclick="checkAnswer(1, 'A', this)" class="option-btn-1 text-left p-3 rounded-lg border border-slate-700 bg-slate-800 hover:border-indigo-500 text-sm transition">A) used to wake</button>
+                            <button onclick="checkAnswer(1, 'B', this)" class="option-btn-1 text-left p-3 rounded-lg border border-slate-700 bg-slate-800 hover:border-indigo-500 text-sm transition">B) is used to waking</button>
+                        </div>
+                        <p id="feedback-1" class="text-xs mt-3 hidden"></p>
+                    </div>
+
+                    <!-- Q2 -->
+                    <div class="bg-slate-900/80 border border-slate-700 p-5 rounded-xl">
+                        <p class="font-medium text-slate-200 mb-3">2. Now, Carlos lives in a loud city with heavy traffic, but after a month, he ______ the noise.</p>
+                        <div class="grid sm:grid-cols-2 gap-3">
+                            <button onclick="checkAnswer(2, 'A', this)" class="option-btn-2 text-left p-3 rounded-lg border border-slate-700 bg-slate-800 hover:border-indigo-500 text-sm transition">A) used to hear</button>
+                            <button onclick="checkAnswer(2, 'B', this)" class="option-btn-2 text-left p-3 rounded-lg border border-slate-700 bg-slate-800 hover:border-indigo-500 text-sm transition">B) is used to hearing</button>
+                        </div>
+                        <p id="feedback-2" class="text-xs mt-3 hidden"></p>
+                    </div>
+
+                    <!-- Q3 -->
+                    <div class="bg-slate-900/80 border border-slate-700 p-5 rounded-xl">
+                        <p class="font-medium text-slate-200 mb-3">3. In the beginning, traffic was terrible, but slowly he ______ driving in the busy streets.</p>
+                        <div class="grid sm:grid-cols-2 gap-3">
+                            <button onclick="checkAnswer(3, 'A', this)" class="option-btn-3 text-left p-3 rounded-lg border border-slate-700 bg-slate-800 hover:border-indigo-500 text-sm transition">A) used to</button>
+                            <button onclick="checkAnswer(3, 'B', this)" class="option-btn-3 text-left p-3 rounded-lg border border-slate-700 bg-slate-800 hover:border-indigo-500 text-sm transition">B) got used to</button>
+                        </div>
+                        <p id="feedback-3" class="text-xs mt-3 hidden"></p>
+                    </div>
+                </div>
+
+                <div class="mt-8 flex justify-between">
+                    <button onclick="switchTab('phase1')" class="bg-slate-700 hover:bg-slate-600 text-white px-5 py-2.5 rounded-xl font-medium transition">&larr; Back</button>
+                    <button onclick="switchTab('phase3')" class="bg-indigo-600 hover:bg-indigo-500 text-white px-6 py-2.5 rounded-xl font-medium transition">Next: Compare &rarr;</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- PHASE 3: COMPARE -->
+        <section id="phase3" class="tab-content hidden space-y-6">
+            <div class="bg-slate-800 border border-slate-700 rounded-2xl p-6 sm:p-8 shadow-xl">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-10 h-10 rounded-xl bg-indigo-500/20 text-indigo-400 flex items-center justify-center font-bold text-lg">3</div>
+                    <h2 class="text-xl font-semibold text-white">Side-by-Side Comparison</h2>
+                </div>
+                <p class="text-slate-400 text-sm mb-6">Notice how a small change in words completely changes the meaning.</p>
+
+                <div class="space-y-6">
+                    <!-- Pair A -->
+                    <div class="bg-slate-900/80 border border-slate-700 p-5 rounded-xl">
+                        <h3 class="font-semibold text-indigo-400 mb-3">Pair A: History vs. Comfort</h3>
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <div class="bg-slate-800/80 p-4 rounded-lg border border-slate-700">
+                                <p class="font-medium text-white italic">“I used to work night shifts.”</p>
+                                <p class="text-xs text-slate-400 mt-2">👉 Meaning: I did this in the past, but I don't anymore.</p>
+                            </div>
+                            <div class="bg-slate-800/80 p-4 rounded-lg border border-slate-700">
+                                <p class="font-medium text-white italic">“I am used to working night shifts.”</p>
+                                <p class="text-xs text-slate-400 mt-2">👉 Meaning: It is normal and familiar for me right now.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pair B -->
+                    <div class="bg-slate-900/80 border border-slate-700 p-5 rounded-xl">
+                        <h3 class="font-semibold text-indigo-400 mb-3">Pair B: Process vs. Past Dislike</h3>
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <div class="bg-slate-800/80 p-4 rounded-lg border border-slate-700">
+                                <p class="font-medium text-white italic">“She got used to the cold weather.”</p>
+                                <p class="text-xs text-slate-400 mt-2">👉 Meaning: The process of adaptation happened successfully.</p>
+                            </div>
+                            <div class="bg-slate-800/80 p-4 rounded-lg border border-slate-700">
+                                <p class="font-medium text-white italic">“She didn't use to like the cold weather.”</p>
+                                <p class="text-xs text-slate-400 mt-2">👉 Meaning: In the past, her opinion or habit was different.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-8 flex justify-between">
+                    <button onclick="switchTab('phase2')" class="bg-slate-700 hover:bg-slate-600 text-white px-5 py-2.5 rounded-xl font-medium transition">&larr; Back</button>
+                    <button onclick="switchTab('phase4')" class="bg-indigo-600 hover:bg-indigo-500 text-white px-6 py-2.5 rounded-xl font-medium transition">Next: Speaking &rarr;</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- PHASE 4: SPEAKING -->
+        <section id="phase4" class="tab-content hidden space-y-6">
+            <div class="bg-slate-800 border border-slate-700 rounded-2xl p-6 sm:p-8 shadow-xl">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-10 h-10 rounded-xl bg-indigo-500/20 text-indigo-400 flex items-center justify-center font-bold text-lg">4</div>
+                    <h2 class="text-xl font-semibold text-white">Speaking & Fashion Connection</h2>
+                </div>
+                <p class="text-slate-400 text-sm mb-6">Work with a partner and answer these questions using today's structures and idiom (<span class="text-indigo-400 font-medium">off the rack</span>).</p>
+
+                <div class="space-y-4">
+                    <div class="bg-slate-900/80 border border-slate-700 p-4 rounded-xl flex items-start gap-3">
+                        <span class="bg-indigo-600 text-white text-xs font-bold px-2.5 py-1 rounded-md mt-0.5">Q1</span>
+                        <p class="text-sm text-slate-200">What is something you <strong class="text-indigo-400">used to wear</strong> when you were younger that you don't wear anymore?</p>
+                    </div>
+                    <div class="bg-slate-900/80 border border-slate-700 p-4 rounded-xl flex items-start gap-3">
+                        <span class="bg-indigo-600 text-white text-xs font-bold px-2.5 py-1 rounded-md mt-0.5">Q2</span>
+                        <p class="text-sm text-slate-200">What is something you bought <strong class="text-indigo-400">"off the rack"</strong> recently that you <strong class="text-indigo-400">are used to</strong> wearing now?</p>
+                    </div>
+                    <div class="bg-slate-900/80 border border-slate-700 p-4 rounded-xl flex items-start gap-3">
+                        <span class="bg-indigo-600 text-white text-xs font-bold px-2.5 py-1 rounded-md mt-0.5">Q3</span>
+                        <p class="text-sm text-slate-200">What is something in this city or your daily routine that was hard at first, but you <strong class="text-indigo-400">got used to</strong>?</p>
+                    </div>
+                </div>
+
+                <div class="mt-8 flex justify-start">
+                    <button onclick="switchTab('phase3')" class="bg-slate-700 hover:bg-slate-600 text-white px-5 py-2.5 rounded-xl font-medium transition">&larr; Back to Compare</button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center py-6 text-slate-500 text-xs border-t border-slate-800 mt-auto">
+        Designed for B1 Level ESL Students &bull; Interactive Lesson Tool
+    </footer>
+
+    <!-- JavaScript Logic -->
+    <script>
+        function switchTab(phaseId) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('bg-indigo-600', 'text-white');
+                btn.classList.add('text-slate-400', 'hover:text-white');
+            });
+            
+            document.getElementById(phaseId).classList.remove('hidden');
+            const activeBtn = document.getElementById('btn-' + phaseId);
+            if(activeBtn) {
+                activeBtn.classList.add('bg-indigo-600', 'text-white');
+                activeBtn.classList.remove('text-slate-400', 'hover:text-white');
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function checkAnswer(questionNum, choice, btnElement) {
+            const buttons = document.querySelectorAll('.option-btn-' + questionNum);
+            const feedback = document.getElementById('feedback-' + questionNum);
+            
+            buttons.forEach(b => {
+                b.classList.remove('border-emerald-500', 'bg-emerald-950/40', 'border-rose-500', 'bg-rose-950/40');
+                b.classList.add('border-slate-700', 'bg-slate-800');
+            });
+
+            feedback.classList.remove('hidden');
+
+            if (questionNum === 1) {
+                if (choice === 'A') {
+                    btnElement.classList.add('border-emerald-500', 'bg-emerald-950/40');
+                    feedback.textContent = '✅ Correct! "Used to wake" describes a past routine that stopped.';
+                    feedback.className = 'text-xs mt-3 text-emerald-400 font-medium';
+                } else {
+                    btnElement.classList.add('border-rose-500', 'bg-rose-950/40');
+                    feedback.textContent = '❌ Incorrect. This is a finished past habit, not a present state.';
+                    feedback.className = 'text-xs mt-3 text-rose-400 font-medium';
+                }
+            } else if (questionNum === 2) {
+                if (choice === 'B') {
+                    btnElement.classList.add('border-emerald-500', 'bg-emerald-950/40');
+                    feedback.textContent = '✅ Correct! "Is used to hearing" shows it is normal for him now.';
+                    feedback.className = 'text-xs mt-3 text-emerald-400 font-medium';
+                } else {
+                    btnElement.classList.add('border-rose-500', 'bg-rose-950/40');
+                    feedback.textContent = '❌ Incorrect. "Used to hear" implies he doesn’t hear it anymore.';
+                    feedback.className = 'text-xs mt-3 text-rose-400 font-medium';
+                }
+            } else if (questionNum === 3) {
+                if (choice === 'B') {
+                    btnElement.classList.add('border-emerald-500', 'bg-emerald-950/40');
+                    feedback.textContent = '✅ Correct! "Got used to" describes the gradual process of adapting.';
+                    feedback.className = 'text-xs mt-3 text-emerald-400 font-medium';
+                } else {
+                    btnElement.classList.add('border-rose-500', 'bg-rose-950/40');
+                    feedback.textContent = '❌ Incorrect. "Used to" alone doesn\'t capture the transition process.';
+                    feedback.className = 'text-xs mt-3 text-rose-400 font-medium';
+                }
+            }
+        }
+    </script>
+</body>
+</html>
